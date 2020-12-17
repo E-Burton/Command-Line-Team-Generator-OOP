@@ -13,7 +13,7 @@ class Manager extends employee {
     }
 
     getRole() {
-        return "manager";
+        return "Manager";
     }
 }
 
