@@ -12,25 +12,24 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
+// Write code to use inquirer to gather information about the development team members, and to create objects for each team member (using the correct classes as blueprints!)
 
 const gatherInfo = () => {
     inquirer.prompt([
         {
             type: "input",
             message: "What is your manager's name?",
-            name: "managerName",
+            name: "name",
         },
         {
             type: "input",
             message: "What is your manager's ID?",
-            name: "managerID",
+            name: "id",
         },
         {
             type: "input",
             message: "What is your manager's email?",
-            name: "managerEmail",
+            name: "email",
             validate: validateEmail,
         },
         {
@@ -39,27 +38,26 @@ const gatherInfo = () => {
             name: "officeNumber",
         },
         {
-            type: "input",
+            type: "list",
             message: "Which type of team member would you like to add?",
             name: "employeeType",
+            choices: ["Engineer", "Intern", "I do not want to add any more team members."],
         }
     ])
     .then((response) => {
+        const manager = new Manager(reponse.name, response.id, reponse.email, response.officeNumber);
+
         switch (response.employeeType) {
             case "Engineer":
-            case "engineer":
                 engineer();
                 break;
             
             case "Intern":
-            case "intern":
                 intern();
                 break;
-            
-            case "Employee":
-            case "employee":
-                employee();
-                break;
+
+            case "I do not want to add any more team members.":
+                process.exit();
         }
     });
 };
@@ -73,6 +71,69 @@ const validateEmail = (email) => {
     schema.validate(email);
     return "Please return valid email.";
 }
+
+// Functions to create objects for team members
+
+const engineer = () => {
+    console.log("I'm in the engineer function!");
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your engineer's name?",
+            name: "name",
+        },
+        {
+            type: "input",
+            message: "What is your engineer's ID?",
+            name: "id",
+        },
+        {
+            type: "input",
+            message: "What is your engineer's email?",
+            name: "email",
+            validate: validateEmail,
+        },
+        {
+            type: "input",
+            message: "What is your engineer's GitHub username?",
+            name: "github",
+        }
+    ])
+    .then((response) => {
+        const engineer = new Engineer(reponse.name, response.id, reponse.email, response.github);
+    });
+};
+
+const intern = () => {
+    console.log("I'm in the intern function.");
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your intern's name?",
+            name: "name",
+        },
+        {
+            type: "input",
+            message: "What is your intern's ID?",
+            name: "id",
+        },
+        {
+            type: "input",
+            message: "What is your intern's email?",
+            name: "email",
+            validate: validateEmail,
+        },
+        {
+            type: "input",
+            message: "What is your intern's school?",
+            name: "school",
+        }
+    ])
+    .then((response) => {
+        const intern = new Intern(reponse.name, response.id, reponse.email, response.school);
+    });
+};
+
 
 // Initialize application/promts for user
 gatherInfo();
