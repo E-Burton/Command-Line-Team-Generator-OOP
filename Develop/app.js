@@ -31,7 +31,6 @@ const gatherInfo = () => {
             type: "input",
             message: "What is your manager's email?",
             name: "email",
-            // validate: validateEmail,
         },
         {
             type: "input",
@@ -99,8 +98,8 @@ const engineer = () => {
     .then((response) => {
         const engineer = new Engineer(response.name, response.id, response.email, response.github);
         employees.push(engineer);
-        console.log(employees);
-        console.log(`You have added ${employees.length - 1} employee(s) to your team total.`);
+        // console.log(employees);
+        // console.log(`You have added ${employees.length - 1} employee(s) to your team total.`);
         addTeamMember();
     });
 };
@@ -131,8 +130,8 @@ const intern = () => {
     .then((response) => {
         const intern = new Intern(response.name, response.id, response.email, response.school);
         employees.push(intern);
-        console.log(employees);
-        console.log(`You have added ${employees.length - 1} employee(s) to your team total.`);
+        // console.log(employees);
+        // console.log(`You have added ${employees.length - 1} employee(s) to your team total.`);
         addTeamMember();
     });
 };
