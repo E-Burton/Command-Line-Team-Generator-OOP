@@ -7,15 +7,15 @@ Create a Node Command-Line Interface (CLI) that takes in infromation about emplo
 ## Table of Contents
 
 * [Objective](#objective)
-* [User Story]("user-story-(concept))
-* [Brief & Acceptance Criteria](#brief-&-acceptance-criteria)
+* [User Story](#user-story-concept)
+* [Brief & Acceptance Criteria](#brief-and-acceptance-criteria)
 * [Video Walkthrough](#video-walkthrough)
 * [Tools Implemented](#tools-implemented)
 * [Installation](#installation)
 * [Challenges](#challenges)
-* [Additional Resources](#additional-resources)
+* [Additional Resources](#additional-resources-for-finished-project)
 
-## User Story (Concept)
+## User Story Concept
 
 ```md
 As a manager
@@ -23,7 +23,7 @@ I want to generate a webpage that displays my team's basic info
 so that I have quick access to emails and GitHub profiles
 ```
 
-## Brief & Acceptance Criteria
+## Brief and Acceptance Criteria
 
 ```md
 GIVEN a command-line application that accepts user input
