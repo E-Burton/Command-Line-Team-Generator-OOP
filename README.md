@@ -1,4 +1,4 @@
-# Command-Line-Team-Generator-OOP
+# Command Line Team Generator Object Oriented Programming (OOP)
 
 ## Objective
 
